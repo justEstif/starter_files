@@ -1,10 +1,6 @@
-import * as path from "path";
-import * as webpack from "webpack";
-// in case you run into any typescript error when configuring `devServer`
-import "webpack-dev-server";
+const path = require("path");
 
-const config: webpack.Configuration = {
-  mode: "development",
+module.exports = {
   entry: "./client/index.tsx",
   module: {
     rules: [
@@ -15,15 +11,12 @@ const config: webpack.Configuration = {
       },
     ],
   },
-
+  mode: "development",
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
   },
-
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "public"),
   },
 };
-
-export default config;
